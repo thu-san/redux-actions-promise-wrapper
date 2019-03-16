@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "build-docs": "rimraf docs && typedoc --options typedoc.json src/"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.3.3333"
   }
 }
