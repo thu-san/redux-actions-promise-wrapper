@@ -1,0 +1,35 @@
+{
+  "name": "redux-actions-promise-wrapper",
+  "version": "0.0.1",
+  "description": "Type safe wrapper for redux actions (compatible with redux-saga)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thu-san/redux-actions-promise-wrapper.git"
+  },
+  "keywords": [
+    "redux",
+    "redux-saga",
+    "redux-actions",
+    "actions",
+    "typescript",
+    "react",
+    "typesafe-actions",
+    "typesafe"
+  ],
+  "author": "thusan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thu-san/redux-actions-promise-wrapper/issues"
+  },
+  "homepage": "https://github.com/thu-san/redux-actions-promise-wrapper#readme",
+  "devDependencies": {
+    "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.3.3333"
+  }
+}
