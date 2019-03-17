@@ -1,6 +1,6 @@
 import { call } from 'redux-saga/effects';
 
-import { Action, GReturnable, IIReturn } from './types';
+import { Action, GReturnable, IIReturn, rpResolve } from './types';
 
 /**
  * Automatically resolves promise of Action.promise
@@ -41,6 +41,8 @@ const actionCreator = <T, P, R>(type: T) => (payload?: P) => {
     reject
   };
 };
+
+export { rpResolve };
 
 /**
  * Generator return value

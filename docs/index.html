@@ -66,27 +66,49 @@
 			<div class="tsd-panel tsd-typography">
 				<p><a href="https://travis-ci.org/thu-san/redux-actions-promise-wrapper"><img src="https://travis-ci.org/thu-san/redux-actions-promise-wrapper.svg?branch=master" alt="Build Status"></a>
 				<a href="https://coveralls.io/github/thu-san/redux-actions-promise-wrapper?branch=master"><img src="https://coveralls.io/repos/github/thu-san/redux-actions-promise-wrapper/badge.svg?branch=master" alt="Coverage Status"></a></p>
-				<h1 id="mypluralize">mypluralize</h1>
-				<p>A Node.js module that returns the plural form of any noun</p>
+				<h1 id="redux-actions-promise-wrapper">redux-actions-promise-wrapper</h1>
+				<p>Type safe redux action creator (works with redux saga)</p>
 				<h2 id="installation">Installation</h2>
-				<pre><code class="language-sh">npm install mypluralize --save
-yarn add mypluralize
-bower install pluralize --save</code></pre>
-				<h2 id="usage">Usage</h2>
-				<h3 id="javascript">Javascript</h3>
-				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> pluralise = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mypluralize'</span>);
-<span class="hljs-keyword">var</span> boys = pluralise.getPlural(<span class="hljs-string">'Boy'</span>);</code></pre>
-				<pre><code class="language-sh">Output should be <span class="hljs-string">'Boys'</span></code></pre>
-				<h3 id="typescript">TypeScript</h3>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { getPlural } <span class="hljs-keyword">from</span> <span class="hljs-string">'mypluralize'</span>;
-<span class="hljs-built_in">console</span>.log(getPlural(<span class="hljs-string">'Goose'</span>));</code></pre>
-				<pre><code class="language-sh">Output should be <span class="hljs-string">'Geese'</span></code></pre>
-				<h3 id="amd">AMD</h3>
-				<pre><code class="language-javascript">define(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require, exports, module</span>) </span>{
-  <span class="hljs-keyword">var</span> pluralise = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mypluralize'</span>);
-});</code></pre>
-				<h2 id="test">Test</h2>
-				<pre><code class="language-sh">npm run <span class="hljs-built_in">test</span></code></pre>
+				<pre><code class="language-sh">npm install redux-actions-promise-wrapper --save
+yarn add redux-actions-promise-wrapper
+bower install redux-actions-promise-wrapper --save</code></pre>
+				<!-- ## Usage
+
+### Javascript
+
+```javascript
+var pluralise = require('mypluralize');
+var boys = pluralise.getPlural('Boy');
+```
+
+```sh
+Output should be 'Boys'
+```
+
+### TypeScript
+
+```typescript
+import { getPlural } from 'mypluralize';
+console.log(getPlural('Goose'));
+```
+
+```sh
+Output should be 'Geese'
+```
+
+### AMD
+
+```javascript
+define(function(require, exports, module) {
+  var pluralise = require('mypluralize');
+});
+```
+
+## Test
+
+```sh
+npm run test
+``` -->
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -100,6 +122,9 @@ bower install pluralize --save</code></pre>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_index_test_.html">"index.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_.html">"types"</a>
 					</li>
 				</ul>
 			</nav>

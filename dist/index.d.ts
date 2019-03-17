@@ -1,4 +1,4 @@
-import { Action, GReturnable, IIReturn } from './types';
+import { Action, GReturnable, IIReturn, rpResolve } from './types';
 /**
  * Action Creator
  * @param type Action Type
@@ -10,6 +10,7 @@ declare const actionCreator: <T, P, R>(type: T) => (payload?: P | undefined) => 
     resolve: (value: IIReturn<R>) => void;
     reject: (reason?: any) => void;
 };
+export { rpResolve };
 /**
  * Generator return value
  * @param t any
@@ -74,4 +75,3 @@ export declare function createAction<T extends string, ST extends string, FT ext
         handleFailure: actionHandler<FT, FP, FH, FR>;
     } & invokeSignature<T, P, R>;
 };
-export {};

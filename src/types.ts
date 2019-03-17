@@ -61,9 +61,10 @@ type IterableIteratorReturn<T> = NonNullable<
 >;
 
 /**
- * Get resolve type of Promise
+ * Returned Promise Resolver
+ * Get resolve type of Promise returned by a function
  */
-export type PromiseResolve<T extends (...args: any[]) => any> = ReturnType<
+export type rpResolve<T extends (...args: any[]) => any> = ReturnType<
   T
 > extends Promise<infer U>
   ? U

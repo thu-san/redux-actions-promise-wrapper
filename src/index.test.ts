@@ -1,4 +1,4 @@
-import { createAction, reg } from './index';
+import { createAction, reg, rpResolve } from './index';
 
 it('reg returns same object', () => {
   expect(reg(1)).toEqual(1);
@@ -6,6 +6,17 @@ it('reg returns same object', () => {
   expect(reg(true)).toEqual(true);
   expect(reg({ name: 'John' })).toEqual({ name: 'John' });
   expect(reg(['cat', 'dog'])).toEqual(['cat', 'dog']);
+});
+
+it('returns promise resolve type', () => {
+  const promise = () =>
+    new Promise<'PROMISE RESOLVE'>(resolve => {
+      resolve('PROMISE RESOLVE');
+    });
+
+  type returned = rpResolve<typeof promise>;
+  const returned: returned = 'PROMISE RESOLVE';
+  expect(returned).toEqual('PROMISE RESOLVE');
 });
 
 const testAction = async <A extends any, T extends string, P = undefined>(

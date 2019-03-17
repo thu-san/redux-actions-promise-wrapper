@@ -39,7 +39,8 @@ declare type GeneratorReturnStrict<T extends (...args: any) => IterableIterator<
 export declare type IIReturn<T> = IterableIteratorReturn<T> extends never ? undefined : IterableIteratorReturn<T>;
 declare type IterableIteratorReturn<T> = NonNullable<Extract<T, GReturnable<unknown>>['__returnedType']>;
 /**
- * Get resolve type of Promise
+ * Returned Promise Resolver
+ * Get resolve type of Promise returned by a function
  */
-export declare type PromiseResolve<T extends (...args: any[]) => any> = ReturnType<T> extends Promise<infer U> ? U : T;
+export declare type rpResolve<T extends (...args: any[]) => any> = ReturnType<T> extends Promise<infer U> ? U : T;
 export {};

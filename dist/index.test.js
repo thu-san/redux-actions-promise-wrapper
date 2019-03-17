@@ -44,6 +44,15 @@ it('reg returns same object', function () {
     expect(index_1.reg({ name: 'John' })).toEqual({ name: 'John' });
     expect(index_1.reg(['cat', 'dog'])).toEqual(['cat', 'dog']);
 });
+it('returns promise resolve type', function () {
+    var promise = function () {
+        return new Promise(function (resolve) {
+            resolve('PROMISE RESOLVE');
+        });
+    };
+    var returned = 'PROMISE RESOLVE';
+    expect(returned).toEqual('PROMISE RESOLVE');
+});
 var testAction = function (action, type, payload, handlerReturn, handleAction, throwHandler) { return __awaiter(_this, void 0, void 0, function () {
     var gen, result, error_1;
     return __generator(this, function (_a) {
