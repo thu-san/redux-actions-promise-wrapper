@@ -1,12 +1,13 @@
 {
   "name": "redux-actions-promise-wrapper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Type safe wrapper for redux actions (compatible with redux-saga)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest",
+    "watch-test": "jest --watchAll",
     "build-docs": "rimraf docs && typedoc --options typedoc.json src/"
   },
   "repository": {
@@ -44,5 +45,8 @@
     "tslint-eslint-rules": "^5.4.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "redux-saga": "^1.0.2"
   }
 }

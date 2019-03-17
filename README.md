@@ -1,19 +1,19 @@
 [![Build Status](https://travis-ci.org/thu-san/redux-actions-promise-wrapper.svg?branch=master)](https://travis-ci.org/thu-san/redux-actions-promise-wrapper)
 [![Coverage Status](https://coveralls.io/repos/github/thu-san/redux-actions-promise-wrapper/badge.svg?branch=master)](https://coveralls.io/github/thu-san/redux-actions-promise-wrapper?branch=master)
 
-# mypluralize
+# redux-actions-promise-wrapper
 
-A Node.js module that returns the plural form of any noun
+Type safe redux action creator (works with redux saga)
 
 ## Installation
 
 ```sh
-npm install mypluralize --save
-yarn add mypluralize
-bower install pluralize --save
+npm install redux-actions-promise-wrapper --save
+yarn add redux-actions-promise-wrapper
+bower install redux-actions-promise-wrapper --save
 ```
 
-## Usage
+<!-- ## Usage
 
 ### Javascript
 
@@ -49,4 +49,4 @@ define(function(require, exports, module) {
 
 ```sh
 npm run test
-```
+``` -->

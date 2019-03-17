@@ -10,6 +10,8 @@
   },
   "defaultSeverity": "warning",
   "rules": {
+    "no-empty": false,
+    "callable-types": false,
     "arrow-return-shorthand": [true, "multiline"],
     "no-null-keyword": true,
     "no-switch-case-fall-through": true,
