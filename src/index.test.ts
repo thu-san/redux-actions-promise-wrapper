@@ -1,4 +1,4 @@
-import { createAction, reg, rpResolve } from './index';
+import { createAction, ExtractActions, reg, rpResolve } from './index';
 
 it('reg returns same object', () => {
   expect(reg(1)).toEqual(1);
@@ -195,4 +195,43 @@ describe('ACTIONS', () => {
     await testSuccessAction(f, successType, { name: 'John' }, actionReturn);
     await testFailureAction(f, failureType, { name: 'John' }, actionReturn);
   });
+});
+
+it('filter reducer actions', () => {
+  function* handleLoginTrigger({
+    email,
+    password
+  }: {
+    email: string;
+    password: string;
+  }) {
+    yield new Promise(resolve => resolve());
+  }
+  const loginAction = createAction(
+    'LOGIN/TRIGGER',
+    'LOGIN/SUCCESS',
+    'LOGIN/FAILURE'
+  )(handleLoginTrigger, function*({ session }: { session: string }) {
+    return undefined;
+  });
+  const logoutAction = createAction(
+    'LOGOUT/TRIGGER',
+    'LOGOUT/SUCCESS',
+    'LOGOUT/FAILURE'
+  )();
+
+  type actionType = ExtractActions<typeof loginAction | typeof logoutAction>;
+
+  const reducer = (state: any, action: actionType) => {
+    switch (action.type) {
+      case loginAction.TRIGGER:
+        const { email, password } = action.payload;
+        return { ...state, email, password };
+      case loginAction.SUCCESS:
+        const { session } = action.payload;
+        return { ...state, session };
+      default:
+        return state;
+    }
+  };
 });

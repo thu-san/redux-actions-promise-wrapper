@@ -101,9 +101,9 @@ export function createAction<T extends string, ST extends string>(
   };
   <
     P = undefined,
+    SP = undefined,
     H = undefined,
     R = undefined,
-    SP = undefined,
     SH = undefined,
     SR = undefined
   >(
@@ -138,12 +138,12 @@ export function createAction<
   };
   <
     P = undefined,
+    SP = undefined,
+    FP = undefined,
     H = undefined,
     R = undefined,
-    SP = undefined,
     SH = undefined,
     SR = undefined,
-    FP = undefined,
     FH = undefined,
     FR = undefined
   >(
@@ -214,3 +214,28 @@ export function createAction<
   }
   return actionPayload;
 }
+
+/**
+ * Extract Actions to be used in reducer
+ * @example
+ * type Actions = ExtractActions<loginAction | logoutAction>
+ */
+export type ExtractActions<A> = {
+  [Key in keyof A]: A[Key] extends (...args: any[]) => any
+    ? ReturnType<A[Key]>
+    : never
+}[keyof A];
+
+const loginAction = createAction(
+  'LOGIN/TRIGGER',
+  'LOGIN/SUCCESS',
+  'LOGIN/FAILURE'
+)<
+  {
+    email: string;
+    password: string;
+  },
+  {
+    session: string;
+  }
+>();
