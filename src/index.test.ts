@@ -242,6 +242,6 @@ it('filter reducer actions', () => {
 it('put return any type', () => {
   const triggerType = 'LOGIN/TRIGGER';
   const loginAction = createAction(triggerType)();
-  const putLogin = put(loginAction());
+  const putLogin: any = put(loginAction());
   expect(putLogin.payload.action.type).toEqual(triggerType);
 });

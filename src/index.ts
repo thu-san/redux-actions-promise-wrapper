@@ -235,7 +235,10 @@ export function createAction<
  * transform return type of redux-saga's put to any
  * @param action Action
  */
-export const put = (action: Ia) => sagaPut(action) as any;
+interface Iput {
+  test: any;
+}
+export const put = (action: Ia) => (sagaPut(action) as unknown) as Iput;
 interface Ia {
   type: string;
   payload?: any;

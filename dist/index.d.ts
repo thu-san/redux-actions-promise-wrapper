@@ -90,7 +90,10 @@ export declare function createAction<T extends string, ST extends string, FT ext
  * transform return type of redux-saga's put to any
  * @param action Action
  */
-export declare const put: (action: Ia) => any;
+interface Iput {
+    test: any;
+}
+export declare const put: (action: Ia) => Iput;
 interface Ia {
     type: string;
     payload?: any;

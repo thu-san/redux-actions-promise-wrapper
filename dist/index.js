@@ -126,8 +126,4 @@ function createAction(type, successType, failureType) {
     return actionPayload;
 }
 exports.createAction = createAction;
-/**
- * transform return type of redux-saga's put to any
- * @param action Action
- */
 exports.put = function (action) { return effects_1.put(action); };
