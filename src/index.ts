@@ -49,7 +49,10 @@ export { rpResolve };
  * @example
  * type Actions = ExtractActions<loginAction | logoutAction>
  */
-export type ExtractActions<A> = {
+export type ExtractActions<Base> = {
+  [Key in keyof Base]: ActionUnion<Base[Key]>
+}[keyof Base];
+export type ActionUnion<A> = {
   [Key in keyof A]: A[Key] extends (...args: any[]) => any
     ? ReturnType<A[Key]> extends IterableIterator<any>
       ? never

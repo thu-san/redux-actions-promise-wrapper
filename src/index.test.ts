@@ -220,7 +220,10 @@ it('filter reducer actions', () => {
     'LOGOUT/FAILURE'
   )();
 
-  type actionType = ExtractActions<typeof loginAction | typeof logoutAction>;
+  type actionType = ExtractActions<{
+    a: typeof loginAction;
+    b: typeof logoutAction;
+  }>;
 
   const reducer = (state: any, action: actionType) => {
     switch (action.type) {
