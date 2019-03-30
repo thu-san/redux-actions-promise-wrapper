@@ -17,6 +17,10 @@ bower install redux-actions-promise-wrapper --save
 
 Create type safe action creators and enable callback for redux saga.
 
+## Example Project
+
+[https://github.com/thu-san/redux-actions-promise-wrapper-usage-example](https://github.com/thu-san/redux-actions-promise-wrapper-usage-example)
+
 ## Usage
 
 ### TypeScript
