@@ -87,10 +87,9 @@ export declare function createAction<T extends string, ST extends string, FT ext
  * transform return type of redux-saga's put to any
  * @param action Action
  */
-export declare const put: (action: Readonly<{
+export declare const put: (action: Ia) => any;
+interface Ia {
     type: string;
-    payload: undefined;
-    promise: Promise<undefined>;
-    resolve: (value: undefined) => void;
-    reject: (reason?: any) => void;
-}>) => any;
+    payload?: any;
+    [key: string]: any;
+}

@@ -230,4 +230,9 @@ export function createAction<
  * transform return type of redux-saga's put to any
  * @param action Action
  */
-export const put = (action: Action) => sagaPut(action) as any;
+export const put = (action: Ia) => sagaPut(action) as any;
+interface Ia {
+  type: string;
+  payload?: any;
+  [key: string]: any;
+}
