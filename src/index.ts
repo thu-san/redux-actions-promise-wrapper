@@ -1,4 +1,4 @@
-import { call } from 'redux-saga/effects';
+import { call, put as sagaPut } from 'redux-saga/effects';
 
 import { Action, GReturnable, IIReturn, rpResolve } from './types';
 
@@ -43,6 +43,17 @@ const actionCreator = <T, P, R>(type: T) => (payload?: P) => {
 };
 
 export { rpResolve };
+
+/**
+ * Extract Actions to be used in reducer
+ * @example
+ * type Actions = ExtractActions<loginAction | logoutAction>
+ */
+export type ExtractActions<A> = {
+  [Key in keyof A]: A[Key] extends (...args: any[]) => any
+    ? ReturnType<A[Key]>
+    : never
+}[keyof A];
 
 /**
  * Generator return value
@@ -216,26 +227,7 @@ export function createAction<
 }
 
 /**
- * Extract Actions to be used in reducer
- * @example
- * type Actions = ExtractActions<loginAction | logoutAction>
+ * transform return type of redux-saga's put to any
+ * @param action Action
  */
-export type ExtractActions<A> = {
-  [Key in keyof A]: A[Key] extends (...args: any[]) => any
-    ? ReturnType<A[Key]>
-    : never
-}[keyof A];
-
-const loginAction = createAction(
-  'LOGIN/TRIGGER',
-  'LOGIN/SUCCESS',
-  'LOGIN/FAILURE'
-)<
-  {
-    email: string;
-    password: string;
-  },
-  {
-    session: string;
-  }
->();
+export const put = (action: Action) => sagaPut(action) as any;

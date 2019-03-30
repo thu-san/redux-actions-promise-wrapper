@@ -1,4 +1,4 @@
-import { createAction, ExtractActions, reg, rpResolve } from './index';
+import { createAction, ExtractActions, put, reg, rpResolve } from './index';
 
 it('reg returns same object', () => {
   expect(reg(1)).toEqual(1);
@@ -234,4 +234,11 @@ it('filter reducer actions', () => {
         return state;
     }
   };
+});
+
+it('put return any type', () => {
+  const triggerType = 'LOGIN/TRIGGER';
+  const loginAction = createAction(triggerType)();
+  const putLogin = put(loginAction());
+  expect(putLogin.payload.action.type).toEqual(triggerType);
 });

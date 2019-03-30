@@ -13,10 +13,14 @@ yarn add redux-actions-promise-wrapper
 bower install redux-actions-promise-wrapper --save
 ```
 
+## Feature
+Create type safe action creators and enable callback for redux saga.
+
 ## Usage
 
 ### TypeScript
 
+##### Create Action
 ```typescript
 import { createAction } from 'redux-actions-promise-wrapper';
 
@@ -33,9 +37,9 @@ const login = createAction(
     session: string;
   }
 >();
-
+```
 `login` now contains the following properties
-
+```typescript
 login.TRIGGER = 'LOGIN/TRIGGER';
 login.SUCCESS = 'LOGIN/SUCCESS';
 login.FAILURE = 'LOGIN/FAILURE';
@@ -43,51 +47,13 @@ login.FAILURE = 'LOGIN/FAILURE';
 login.trigger(payload) === { type: 'LOGIN/TRIGGER', payload }; // payload must have type { email: string, password: string }
 login.success(payload) === { type: 'LOGIN/SUCCESS', payload }; // payload must have type { session: string }
 login.failure() ===  { type: 'LOGIN/FAILURE' };
+
+login(payload) === login.trigger(payload);
+You can also call on login for trigger action.
 ```
 
-#### Calling on `login(payload)` is the same as `login.trigger(payload)`.
-
-### Javascript
-
-```javascript
-var pluralise = require('mypluralize');
-var boys = pluralise.getPlural('Boy');
-```
-
-<!-- ## Usage
-
-### Javascript
-
-```javascript
-var pluralise = require('mypluralize');
-var boys = pluralise.getPlural('Boy');
-```
-
-```sh
-Output should be 'Boys'
-```
-
-### TypeScript
+#### Redux Saga Example
 
 ```typescript
-import { getPlural } from 'mypluralize';
-console.log(getPlural('Goose'));
+
 ```
-
-```sh
-Output should be 'Geese'
-```
-
-### AMD
-
-```javascript
-define(function(require, exports, module) {
-  var pluralise = require('mypluralize');
-});
-```
-
-## Test
-
-```sh
-npm run test
-``` -->
