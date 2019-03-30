@@ -12,6 +12,14 @@ declare const actionCreator: <T, P, R>(type: T) => (payload?: P | undefined) => 
 };
 export { rpResolve };
 /**
+ * Extract Actions to be used in reducer
+ * @example
+ * type Actions = ExtractActions<loginAction | logoutAction>
+ */
+export declare type ExtractActions<A> = {
+    [Key in keyof A]: A[Key] extends (...args: any[]) => any ? ReturnType<A[Key]> : never;
+}[keyof A];
+/**
  * Generator return value
  * @param t any
  */
@@ -44,7 +52,7 @@ export declare function createAction<T extends string, ST extends string>(type: 
         SUCCESS: ST;
         success: () => Action<ST>;
     };
-    <P = undefined, H = undefined, R = undefined, SP = undefined, SH = undefined, SR = undefined>(handleAction?: handleAction<P, R, H>, handleSuccess?: handleAction<SP, SR, SH>): {
+    <P = undefined, SP = undefined, H = undefined, R = undefined, SH = undefined, SR = undefined>(handleAction?: handleAction<P, R, H>, handleSuccess?: handleAction<SP, SR, SH>): {
         TRIGGER: T;
         trigger: actionCreator<T, P, R>;
         handleTrigger: actionHandler<T, P, H, R>;
@@ -63,7 +71,7 @@ export declare function createAction<T extends string, ST extends string, FT ext
         FAILURE: FT;
         failure: () => Action<FT>;
     };
-    <P = undefined, H = undefined, R = undefined, SP = undefined, SH = undefined, SR = undefined, FP = undefined, FH = undefined, FR = undefined>(handleAction?: handleAction<P, R, H>, handleSuccess?: handleAction<SP, SR, SH>, handleFailure?: handleAction<FP, FR, FH>): {
+    <P = undefined, SP = undefined, FP = undefined, H = undefined, R = undefined, SH = undefined, SR = undefined, FH = undefined, FR = undefined>(handleAction?: handleAction<P, R, H>, handleSuccess?: handleAction<SP, SR, SH>, handleFailure?: handleAction<FP, FR, FH>): {
         TRIGGER: T;
         trigger: actionCreator<T, P, R>;
         handleTrigger: actionHandler<T, P, H, R>;
@@ -75,3 +83,14 @@ export declare function createAction<T extends string, ST extends string, FT ext
         handleFailure: actionHandler<FT, FP, FH, FR>;
     } & invokeSignature<T, P, R>;
 };
+/**
+ * transform return type of redux-saga's put to any
+ * @param action Action
+ */
+export declare const put: (action: Readonly<{
+    type: string;
+    payload: undefined;
+    promise: Promise<undefined>;
+    resolve: (value: undefined) => void;
+    reject: (reason?: any) => void;
+}>) => any;
