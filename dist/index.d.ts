@@ -17,7 +17,7 @@ export { rpResolve };
  * type Actions = ExtractActions<loginAction | logoutAction>
  */
 export declare type ExtractActions<A> = {
-    [Key in keyof A]: A[Key] extends (...args: any[]) => any ? ReturnType<A[Key]> : never;
+    [Key in keyof A]: A[Key] extends (...args: any[]) => any ? ReturnType<A[Key]> extends IterableIterator<any> ? never : ReturnType<A[Key]> : never;
 }[keyof A];
 /**
  * Generator return value

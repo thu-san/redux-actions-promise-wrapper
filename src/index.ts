@@ -51,7 +51,9 @@ export { rpResolve };
  */
 export type ExtractActions<A> = {
   [Key in keyof A]: A[Key] extends (...args: any[]) => any
-    ? ReturnType<A[Key]>
+    ? ReturnType<A[Key]> extends IterableIterator<any>
+      ? never
+      : ReturnType<A[Key]>
     : never
 }[keyof A];
 
