@@ -27,8 +27,8 @@ const promiseHandler = <T extends string, P, R>(
  * @param type Action Type
  */
 const actionCreator = <T, P, R>(type: T) => (payload?: P) => {
-  let resolve: (value: IIReturn<R>) => void = () => {};
-  let reject: (reason?: any) => void = () => {};
+  let resolve: (value: IIReturn<R>) => void = () => { };
+  let reject: (reason?: any) => void = () => { };
   const promise = new Promise<IIReturn<R>>((pResolve, pReject) => {
     resolve = pResolve;
     reject = pReject;
@@ -54,10 +54,10 @@ export type ExtractActions<Base> = {
 }[keyof Base];
 export type ActionUnion<A> = {
   [Key in keyof A]: A[Key] extends (...args: any[]) => any
-    ? ReturnType<A[Key]> extends IterableIterator<any>
-      ? never
-      : ReturnType<A[Key]>
-    : never
+  ? ReturnType<A[Key]> extends IterableIterator<any>
+  ? never
+  : ReturnType<A[Key]>
+  : never
 }[keyof A];
 
 /**
@@ -71,18 +71,22 @@ export function reg<T>(t: T) {
 // Helper types
 type invokeSignature<T extends string, P, R> = P extends undefined
   ? {
-      (): Action<T, P, IIReturn<R>>;
-    }
-  : {
-      (payload: P): Action<T, P, IIReturn<R>>;
-    };
+    (): Action<T, P, IIReturn<R>>;
+  }
+  : P extends boolean ? {
+    (payload: boolean): Action<T, P, IIReturn<R>>;
+  } : {
+    (payload: P): Action<T, P, IIReturn<R>>;
+  };
 type handleAction<P, R, H> =
   | (P extends undefined
-      ? () => IterableIterator<R>
-      : (args: P) => IterableIterator<R>)
+    ? () => IterableIterator<R>
+    : (args: P) => IterableIterator<R>)
   | H;
 type actionCreator<T extends string, P, R> = P extends undefined
   ? () => Action<T, P, IIReturn<R>>
+  : P extends boolean
+  ? (payload: boolean) => Action<T, P, IIReturn<R>>
   : (payload: P) => Action<T, P, IIReturn<R>>;
 type actionHandler<T extends string, P, H, R> = H extends undefined
   ? undefined
@@ -122,7 +126,7 @@ export function createAction<T extends string, ST extends string>(
     R = undefined,
     SH = undefined,
     SR = undefined
-  >(
+    >(
     handleAction?: handleAction<P, R, H>,
     handleSuccess?: handleAction<SP, SR, SH>
   ): {
@@ -162,7 +166,7 @@ export function createAction<
     SR = undefined,
     FH = undefined,
     FR = undefined
-  >(
+    >(
     handleAction?: handleAction<P, R, H>,
     handleSuccess?: handleAction<SP, SR, SH>,
     handleFailure?: handleAction<FP, FR, FH>
@@ -190,8 +194,8 @@ export function createAction<
   ) {
     // handler return
     const routine = (payload?: P) => {
-      let resolve: (value: IIReturn<R>) => void = () => {};
-      let reject: (reason?: any) => void = () => {};
+      let resolve: (value: IIReturn<R>) => void = () => { };
+      let reject: (reason?: any) => void = () => { };
       const promise = new Promise<IIReturn<R>>((pResolve, pReject) => {
         resolve = pResolve;
         reject = pReject;
