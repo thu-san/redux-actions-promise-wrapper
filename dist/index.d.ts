@@ -29,11 +29,13 @@ export declare type ActionUnion<A> = {
 export declare function reg<T>(t: T): GReturnable<T>;
 declare type invokeSignature<T extends string, P, R> = P extends undefined ? {
     (): Action<T, P, IIReturn<R>>;
+} : P extends boolean ? {
+    (payload: boolean): Action<T, P, IIReturn<R>>;
 } : {
     (payload: P): Action<T, P, IIReturn<R>>;
 };
 declare type handleAction<P, R, H> = (P extends undefined ? () => IterableIterator<R> : (args: P) => IterableIterator<R>) | H;
-declare type actionCreator<T extends string, P, R> = P extends undefined ? () => Action<T, P, IIReturn<R>> : (payload: P) => Action<T, P, IIReturn<R>>;
+declare type actionCreator<T extends string, P, R> = P extends undefined ? () => Action<T, P, IIReturn<R>> : P extends boolean ? (payload: boolean) => Action<T, P, IIReturn<R>> : (payload: P) => Action<T, P, IIReturn<R>>;
 declare type actionHandler<T extends string, P, H, R> = H extends undefined ? undefined : (action: Action<T, P, IIReturn<R>>) => IterableIterator<any>;
 export declare function createAction<T extends string>(type: T): {
     (): {

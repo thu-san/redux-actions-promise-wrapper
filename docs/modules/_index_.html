@@ -71,8 +71,17 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported"><a href="../interfaces/_index_.ia.html" class="tsd-kind-icon">Ia</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported"><a href="../interfaces/_index_.iput.html" class="tsd-kind-icon">Iput</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_index_.html#actionunion" class="tsd-kind-icon">Action<wbr>Union</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_index_.html#extractactions" class="tsd-kind-icon">Extract<wbr>Actions</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="_index_.html#actionhandler" class="tsd-kind-icon">action<wbr>Handler</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="_index_.html#handleaction" class="tsd-kind-icon">handle<wbr>Action</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="_index_.html#invokesignature" class="tsd-kind-icon">invoke<wbr>Signature</a></li>
@@ -84,21 +93,52 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="_index_.html#actioncreator" class="tsd-kind-icon">action<wbr>Creator</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_index_.html#createaction" class="tsd-kind-icon">create<wbr>Action</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="_index_.html#promisehandler" class="tsd-kind-icon">promise<wbr>Handler</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_index_.html#put" class="tsd-kind-icon">put</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_index_.html#reg" class="tsd-kind-icon">reg</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="actionunion" class="tsd-anchor"></a>
+					<h3>Action<wbr>Union</h3>
+					<div class="tsd-signature tsd-kind-icon">Action<wbr>Union<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">{ [Key in keyof A]: A[Key] extends (...args: any[]) &#x3D;&gt; any ? ReturnType&lt;A[Key]&gt; extends IterableIterator&lt;any&gt; ? never : ReturnType&lt;A[Key]&gt; : never; }[keyof A]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L55">index.ts:55</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="extractactions" class="tsd-anchor"></a>
+					<h3>Extract<wbr>Actions</h3>
+					<div class="tsd-signature tsd-kind-icon">Extract<wbr>Actions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">{ [Key in keyof Base]: { [Key in keyof Base[Key]]: Base[Key][Key] extends (...args: any[]) &#x3D;&gt; any ? ReturnType&lt;Base[Key][Key]&gt; extends IterableIterator&lt;any&gt; ? never : ReturnType&lt;Base[Key][Key]&gt; : never; }[keyof Base[Key]]; }[keyof Base]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L52">index.ts:52</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Extract Actions to be used in reducer</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>example</dt>
+							<dd><p>type Actions = ExtractActions&lt;loginAction | logoutAction&gt;</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
 					<a name="actionhandler" class="tsd-anchor"></a>
 					<h3>action<wbr>Handler</h3>
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">actionHandler&lt;T, P, H, R&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L71">index.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L91">index.ts:91</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -108,7 +148,7 @@
 					<div class="tsd-signature tsd-kind-icon">handle<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">P extends undefined ? () &#x3D;&gt; IterableIterator&lt;R&gt; : (args: P) &#x3D;&gt; IterableIterator&lt;R&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">H</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L63">index.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L81">index.ts:81</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -118,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">invoke<wbr>Signature<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">invokeSignature&lt;T, P, R&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L56">index.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L72">index.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -135,7 +175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L29">index.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L29">index.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -182,7 +222,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L75">index.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L95">index.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -269,7 +309,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L91">index.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L111">index.ts:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -295,7 +335,7 @@
 								<li class="tsd-parameter-siganture">
 									<ul class="tsd-signatures tsd-kind-type-literal tsd-has-type-parameter tsd-is-not-exported">
 										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
-										<li class="tsd-signature tsd-kind-icon">&lt;P, H, R, SP, SH, SR&gt;<span class="tsd-signature-symbol">(</span>handleAction<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">H</span><span class="tsd-signature-symbol">&gt;</span>, handleSuccess<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SP</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SR</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SH</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="_index_.html#invokesignature" class="tsd-signature-type">invokeSignature</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
+										<li class="tsd-signature tsd-kind-icon">&lt;P, SP, H, R, SH, SR&gt;<span class="tsd-signature-symbol">(</span>handleAction<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">H</span><span class="tsd-signature-symbol">&gt;</span>, handleSuccess<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SP</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SR</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SH</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="_index_.html#invokesignature" class="tsd-signature-type">invokeSignature</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
 									</ul>
 									<ul class="tsd-descriptions">
 										<li class="tsd-description">
@@ -356,13 +396,13 @@
 													<h4>P</h4>
 												</li>
 												<li>
+													<h4>SP</h4>
+												</li>
+												<li>
 													<h4>H</h4>
 												</li>
 												<li>
 													<h4>R</h4>
-												</li>
-												<li>
-													<h4>SP</h4>
 												</li>
 												<li>
 													<h4>SH</h4>
@@ -392,7 +432,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L121">index.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L141">index.ts:141</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -424,7 +464,7 @@
 								<li class="tsd-parameter-siganture">
 									<ul class="tsd-signatures tsd-kind-type-literal tsd-has-type-parameter tsd-is-not-exported">
 										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
-										<li class="tsd-signature tsd-kind-icon">&lt;P, H, R, SP, SH, SR, FP, FH, FR&gt;<span class="tsd-signature-symbol">(</span>handleAction<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">H</span><span class="tsd-signature-symbol">&gt;</span>, handleSuccess<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SP</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SR</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SH</span><span class="tsd-signature-symbol">&gt;</span>, handleFailure<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">FP</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">FR</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">FH</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="_index_.html#invokesignature" class="tsd-signature-type">invokeSignature</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
+										<li class="tsd-signature tsd-kind-icon">&lt;P, SP, FP, H, R, SH, SR, FH, FR&gt;<span class="tsd-signature-symbol">(</span>handleAction<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">H</span><span class="tsd-signature-symbol">&gt;</span>, handleSuccess<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SP</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SR</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SH</span><span class="tsd-signature-symbol">&gt;</span>, handleFailure<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">handleAction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">FP</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">FR</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">FH</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="_index_.html#invokesignature" class="tsd-signature-type">invokeSignature</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
 									</ul>
 									<ul class="tsd-descriptions">
 										<li class="tsd-description">
@@ -503,22 +543,22 @@
 													<h4>P</h4>
 												</li>
 												<li>
+													<h4>SP</h4>
+												</li>
+												<li>
+													<h4>FP</h4>
+												</li>
+												<li>
 													<h4>H</h4>
 												</li>
 												<li>
 													<h4>R</h4>
 												</li>
 												<li>
-													<h4>SP</h4>
-												</li>
-												<li>
 													<h4>SH</h4>
 												</li>
 												<li>
 													<h4>SR</h4>
-												</li>
-												<li>
-													<h4>FP</h4>
 												</li>
 												<li>
 													<h4>FH</h4>
@@ -560,7 +600,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L9">index.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L9">index.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -613,6 +653,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="put" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> put</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">put<span class="tsd-signature-symbol">(</span>action<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.ia.html" class="tsd-signature-type">Ia</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.iput.html" class="tsd-signature-type">Iput</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L245">index.ts:245</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>action: <a href="../interfaces/_index_.ia.html" class="tsd-signature-type">Ia</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_index_.iput.html" class="tsd-signature-type">Iput</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="reg" class="tsd-anchor"></a>
 					<h3>reg</h3>
@@ -623,7 +686,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/91ee883/src/index.ts#L51">index.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/thu-san/redux-actions-promise-wrapper/blob/dcc1deb/src/index.ts#L67">index.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -674,6 +737,18 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../interfaces/_index_.ia.html" class="tsd-kind-icon">Ia</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../interfaces/_index_.iput.html" class="tsd-kind-icon">Iput</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_index_.html#actionunion" class="tsd-kind-icon">Action<wbr>Union</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_index_.html#extractactions" class="tsd-kind-icon">Extract<wbr>Actions</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
 						<a href="_index_.html#actionhandler" class="tsd-kind-icon">action<wbr>Handler</a>
 					</li>
@@ -691,6 +766,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
 						<a href="_index_.html#promisehandler" class="tsd-kind-icon">promise<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_index_.html#put" class="tsd-kind-icon">put</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_index_.html#reg" class="tsd-kind-icon">reg</a>
